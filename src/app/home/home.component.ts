@@ -12,4 +12,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  stars=[2,5,2.5,3.5,4]
 }

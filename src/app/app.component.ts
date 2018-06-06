@@ -11,6 +11,7 @@ export class AppComponent {
   async ngAfterViewInit() {
 		await this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
 		await this.loadScript('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
+		await this.loadScript('https://use.fontawesome.com/releases/v5.0.6/js/all.js');
 	}
 private loadScript(scriptUrl: string) {
 	   return new Promise((resolve, reject) => {
@@ -26,8 +27,3 @@ private loadScript(scriptUrl: string) {
 
 
 
-// "./src/assets/fontawesome-free-5.0.12/web-fonts-with-css/css/fa-brands.min.css",
-// "./src/assets/fontawesome-free-5.0.12/web-fonts-with-css/css/fa-regular.min.css",
-// "./src/assets/fontawesome-free-5.0.12/web-fonts-with-css/css/fa-solid.min.css",
-// "./src/assets/fontawesome-free-5.0.12/web-fonts-with-css/css/fontawesome-all.min.css",
-// "./src/assets/fontawesome-free-5.0.12/web-fonts-with-css/css/fontawesome.min.css"
