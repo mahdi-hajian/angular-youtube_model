@@ -1,13 +1,8 @@
-import {
-    Component,
-    OnInit,
-    Input,
-    Output,
-    EventEmitter,
-    OnChanges
-} from '@angular/core';
-
-@Component({selector: 'app-star', templateUrl: './star.component.html', styleUrls: ['./star.component.css']})
+import {Component,OnInit,Input,Output,OnChanges,EventEmitter} from '@angular/core';
+@Component({selector: 'app-star',
+ templateUrl: './star.component.html',
+  styleUrls: ['./star.component.css']
+})
 export class StarComponent implements OnInit,
 OnChanges {
 
@@ -23,6 +18,8 @@ OnChanges {
         this.startWitdh = this.rating * 90 / 5;
     }
     onStarClicked() {
-        this.starClicked.emit('rating is '+this.rating)
+        this
+            .starClicked
+            .emit('rating is ' + this.rating)
     }
 }
