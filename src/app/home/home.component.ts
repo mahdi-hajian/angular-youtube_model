@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
-})
+@Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.css']})
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    constructor() {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {}
 
-  stars=[2,5,2.5,3.5,4]
+    stars = [2, 5, 2.5, 3.5, 4]
+    writestar
+    onClick(event) {
+        this.writestar=event;
+    }
 }

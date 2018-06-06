@@ -16,15 +16,13 @@ OnChanges {
     ngOnInit() {}
 
     startWitdh;
-   @Input ('ratings') rating;
-    // @Output()starClicked = new EventEmitter < string > ();
+    @Input('ratings')rating;
+    @Output()starClicked = new EventEmitter < string > ();
 
     ngOnChanges() {
         this.startWitdh = this.rating * 90 / 5;
     }
-    // onStarClicked() {
-    //     this
-    //         .starClicked
-    //         .emit('the rating is ${this.rating}');
-    // }
+    onStarClicked() {
+        this.starClicked.emit('rating is '+this.rating)
+    }
 }

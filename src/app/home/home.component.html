@@ -1,4 +1,8 @@
 
 
 
-<app-star *ngFor="let item of stars" [ratings]="item"></app-star>
+<app-star *ngFor="let item of stars" [ratings]="item" (starClicked)='onClick($event)'></app-star>
+<br>
+<div class="container">
+    <h1>{{writestar}}</h1>
+</div>
