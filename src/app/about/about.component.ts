@@ -7,7 +7,7 @@ export class AboutComponent implements OnInit {
 
     ngOnInit() {}
     @ViewChild("inputeUser")inputvar : ElementRef;
-    name;
+    name ;
     onClick() {
         this.name = this.inputvar.nativeElement.value;
     }
