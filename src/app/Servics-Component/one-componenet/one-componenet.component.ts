@@ -23,5 +23,7 @@ export class OneComponenetComponent implements OnInit {
       let a:Details={name:this.name.nativeElement.value,age:this.age.nativeElement.value};
 
       this.addAcount.accountAdd(a);
+
+      this.addAcount.userAdded.emit(a);
   }
 }

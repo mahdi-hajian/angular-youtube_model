@@ -1,29 +1,41 @@
-import { Component } from '@angular/core';
-import * as $ from "jquery";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {LogInService} from './Services/Guard/logIn.service';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
+@Component({selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
+export class AppComponent implements OnInit {
 
-  async ngAfterViewInit() {
-		await this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
-		await this.loadScript('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
-		await this.loadScript('https://use.fontawesome.com/releases/v5.0.6/js/all.js');
-	}
-private loadScript(scriptUrl: string) {
-	   return new Promise((resolve, reject) => {
-		 const scriptElement = document.createElement('script');
-		 scriptElement.src = scriptUrl;
-		 scriptElement.onload = resolve;
-		 document.body.appendChild(scriptElement);
-		})
-   }
+    async ngAfterViewInit() {
+        await this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js');
+        await this.loadScript('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js');
+        await this.loadScript('https://use.fontawesome.com/releases/v5.0.6/js/all.js');
+    }
+    private loadScript(scriptUrl : string) {
+        return new Promise((resolve, reject) => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = scriptUrl;
+            scriptElement.onload = resolve;
+            document
+                .body
+                .appendChild(scriptElement);
+        })
+    }
+    constructor(private router : Router, private loginSite : LogInService) {}
+    ngOnInit() {
+    }
+    title = 'app';
 
-  title = 'app';
+    LogInSite() {
+        this
+            .loginSite
+            .logIn();
+    }
+    LogOutSite() {
+        this
+            .loginSite
+			.logOut();
+			setTimeout(() => {
+				this.router.navigate([''])
+			}, 200);
+    }
 }
-
-
-

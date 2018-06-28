@@ -14,6 +14,10 @@ export class TwoComponenetComponent implements OnInit {
   accounts:Details[]=[];
   ngOnInit() {
     this.accounts=this.addAccount.details;
+
+    this.addAccount.userAdded.subscribe(
+      (detail:Details)=>alert(detail.name+"  "+detail.age)
+    );
   }
 
 }

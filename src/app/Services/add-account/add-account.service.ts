@@ -1,20 +1,33 @@
-import { Injectable } from '@angular/core';
-import { Details } from '../../Interface/details.interface';
+import {Injectable, EventEmitter} from '@angular/core';
+import {Details} from '../../Interface/details.interface';
+import {AccountService} from '../account/account.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class AddAccountService {
 
-  details:Details[]=[
-    {name:'mahdi',age:'21'},
-    {name:'ali',age:'25'},
-    {name:'mohsen',age:'30'}
-  ];
+    userAdded = new EventEmitter < Details > ();
 
-  accountAdd(a:Details){
-    this.details.push(a);
-  }
+    details : Details[] = [
+        {
+            name: 'mahdi',
+            age: '21'
+        }, {
+            name: 'ali',
+            age: '25'
+        }, {
+            name: 'mohsen',
+            age: '30'
+        }
+    ];
 
-  constructor() { }
+    accountAdd(a : Details) {
+        this
+            .details
+            .push(a);
+        this
+            .accountservice
+            .LogString(a);
+    }
+
+    constructor(private accountservice : AccountService) {}
 }
