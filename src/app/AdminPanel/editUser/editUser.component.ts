@@ -25,7 +25,8 @@ export class EditUserComponent implements OnInit, ICanComponentDeactivate {
     ngOnInit() {
       // وقتی از سرویس کامپوننت میایم نشون میده
      this.activeRoute.queryParams.subscribe(q => console.log(q));
-     this.activeRoute.queryParams.subscribe(q => this.allow = q.allowEdit);
+     this.activeRoute.queryParams.subscribe(q => this.allow = q['allowEdit']);
+    //  this.activeRoute.queryParams.subscribe(q => this.allow = q.allowEdit);
      this.activeRoute.fragment.subscribe(q => console.log('fragment: ' + q));
 
      // وقتی از یوزر میایم اون یوزر رو از یوزر سرویس پیدا میکنه و نشون میده
