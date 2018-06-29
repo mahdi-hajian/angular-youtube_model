@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {LogInService} from './Services/Guard/logIn.service';
 
 @Component({selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
 export class AppComponent implements OnInit {
@@ -21,38 +20,7 @@ export class AppComponent implements OnInit {
                 .appendChild(scriptElement);
         });
     }
-    constructor(private router: Router, private loginSite: LogInService) {}
+    constructor() {}
     ngOnInit() {
-    }
-    // tslint:disable-next-line:member-ordering
-    title = 'app';
-////
-    LogInSite() {
-        this
-            .loginSite
-            .logIn();
-    }
-    LogOutSite() {
-        this
-            .loginSite
-.logOut();
-setTimeout(() => {
-this.router.navigate(['']);
-}, 200);
-    }
-    //
-    LogInAdminPanel() {
-        this
-            .loginSite
-            .loggedInChildren = true;
-
-    }
-    LogOutAdminPanel() {
-        this
-.loginSite
-.loggedInChildren = false;
-setTimeout(() => {
-this.router.navigate(['/adminPanel']);
-}, 200);
     }
 }
