@@ -5,10 +5,8 @@ import { Details } from '../../Interface/details.interface';
   providedIn: 'root'
 })
 export class AccountService {
-  
-  LogString(a:Details){
+  LogString(a: Details) {
     console.log(a);
   }
-  
   constructor() { }
 }

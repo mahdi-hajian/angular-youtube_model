@@ -5,20 +5,18 @@ import {LogInService} from './logIn.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate, CanActivateChild {
-  
-    constructor(private loginService : LogInService, private router : Router) {}
+    constructor(private loginService: LogInService, private router: Router) {}
 
-    canActivate(route : ActivatedRouteSnapshot, state : RouterStateSnapshot) :
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
      Observable < boolean > | Promise < boolean > | boolean {
         return this.loginService.isAthenticated().then(
-          (auth:boolean) =>
-          {
+          (auth: boolean) => {
             if (auth) {
-              return true
+              return true;
             } else {
               this.router.navigate(['']);
               alert('you is not admin');
-              return false
+              return false;
             }
           }
         );
@@ -27,14 +25,13 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot):
       boolean | Observable<boolean> | Promise<boolean> {
         return this.loginService.isAthenticatedChild().then(
-          (auth:boolean) =>
-          {
+          (auth: boolean) => {
             if (auth) {
-              return true
+              return true;
             } else {
               this.router.navigate(['/adminPanel']);
               alert('you dont have let to edit users');
-              return false
+              return false;
             }
           }
         );
