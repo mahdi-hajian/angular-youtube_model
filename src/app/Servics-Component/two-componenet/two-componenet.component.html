@@ -3,6 +3,9 @@
 
 <div class="container">
     <ul *ngFor="let i of accounts; let a=index">
-        {{a}} ) ------- {{i.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.age}}
+        <a [routerLink]="[ '/adminPanel', i.id, i.name ]" style="text-decoration: none">
+            {{a+1}} ) Name : {{i.name}}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;ID : {{i.id}}</a>
     </ul>
+    <hr>
+    <button (click)="onClickEdit(1)" class="btn btn-info">edit</button>
 </div>

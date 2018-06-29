@@ -1,4 +1,4 @@
-import {Component,OnInit,Input,Output,OnChanges,EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angular/core';
 @Component({selector: 'app-star',
  templateUrl: './star.component.html',
   styleUrls: ['./star.component.css']
@@ -10,16 +10,19 @@ OnChanges {
 
     ngOnInit() {}
 
+    // tslint:disable-next-line:member-ordering
     startWitdh;
-    @Input('ratings')rating;
+    // tslint:disable-next-line:member-ordering
+    @Input('ratings')ratings;
+    // tslint:disable-next-line:member-ordering
     @Output()starClicked = new EventEmitter < string > ();
 
     ngOnChanges() {
-        this.startWitdh = this.rating * 90 / 5;
+        this.startWitdh = this.ratings * 90 / 5;
     }
     onStarClicked() {
         this
             .starClicked
-            .emit('rating is ' + this.rating)
+            .emit('rating is ' + this.ratings);
     }
 }

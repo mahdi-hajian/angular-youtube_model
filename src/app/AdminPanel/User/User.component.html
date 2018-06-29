@@ -1,7 +1,15 @@
 <br>
 <div class="container">
+  <!-- هموناکه توی یو ار اله نشون  میده -->
   <p>{{user.id}}</p>
   <p>{{user.name}}</p>
   <hr>
-  <a [routerLink]="[ '/user', 2 , 'ali' ]">next</a>
+  <!-- یو ار ال رو عوض میکنه و تغییر میده بالایی رو -->
+  <a [routerLink]="[ '/adminPanel', 2 , 'ali' ]">change to ali by id 2</a>
+  <br>
+  <hr>
+  <!-- یوزر های داخل سرویس یوزر رو نشون میده -->
+    <ul *ngFor="let item of user2">
+      <a [routerLink]="[ '/adminPanel', item.id , 'edit']" [queryParams]='{allowEdit: 1}'>{{item.name}} by id {{item.id}}</a>
+    </ul>
 </div>

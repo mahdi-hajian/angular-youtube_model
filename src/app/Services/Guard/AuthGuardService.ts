@@ -32,11 +32,12 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
             if (auth) {
               return true
             } else {
-              this.router.navigate(['']);
+              this.router.navigate(['/adminPanel']);
               alert('you dont have let to edit users');
               return false
             }
           }
         );
     }
+    ////
 }

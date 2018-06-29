@@ -5,8 +5,8 @@ export class LogInService {
 
     constructor() {}
 
-    loggedIn = false;
-    loggedInChildren = false;
+    loggedIn = true;
+    loggedInChildren = true;
 
     isAthenticated() {
         const promise = new Promise((resolve, reject) => {

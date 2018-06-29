@@ -6,8 +6,10 @@ export class AboutComponent implements OnInit {
     constructor() {}
 
     ngOnInit() {}
-    @ViewChild("inputeUser")inputvar : ElementRef;
-    name ;
+    // tslint:disable-next-line:member-ordering
+    @ViewChild('inputeUser') inputvar: ElementRef;
+    // tslint:disable-next-line:member-ordering
+    name;
     onClick() {
         this.name = this.inputvar.nativeElement.value;
     }

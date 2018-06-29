@@ -7,20 +7,20 @@ export class AddAccountService {
 
     userAdded = new EventEmitter < Details > ();
 
-    details : Details[] = [
+    details: Details[] = [
         {
             name: 'mahdi',
-            age: '21'
+            id: '1'
         }, {
             name: 'ali',
-            age: '25'
+            id: '2'
         }, {
             name: 'mohsen',
-            age: '30'
+            id: '3'
         }
     ];
 
-    accountAdd(a : Details) {
+    accountAdd(a: Details) {
         this
             .details
             .push(a);
@@ -29,5 +29,5 @@ export class AddAccountService {
             .LogString(a);
     }
 
-    constructor(private accountservice : AccountService) {}
+    constructor(private accountservice: AccountService) {}
 }
