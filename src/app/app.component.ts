@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import { UserService } from './Services/User/user.service';
 
 @Component({selector: 'app-root', templateUrl: './app.component.html', styleUrls: ['./app.component.css']})
 export class AppComponent implements OnInit {
@@ -20,7 +21,24 @@ export class AppComponent implements OnInit {
                 .appendChild(scriptElement);
         });
     }
-    constructor() {}
+
+    userActivate1 = false;
+    userActivate2 = false;
+
+    constructor(private userService:UserService) {}
     ngOnInit() {
+        this.userService.userActivated.subscribe((data) => { 
+            if (data == 1) {
+                if(this.userActivate1 == false)
+                    this.userActivate1 = true;
+                else
+                    this.userActivate1 = false
+            } else if(data = 2) {
+                if(this.userActivate2 == false)
+                    this.userActivate2 = true;
+                else
+                    this.userActivate2 = false
+            }
+         });
     }
 }

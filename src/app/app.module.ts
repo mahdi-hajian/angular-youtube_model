@@ -7,20 +7,23 @@ import { AppRoutingModule } from './/app-routing.module';
 import { NotFounPageComponent } from './not-foun-page/not-foun-page.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
+import { UserService } from './Services/User/user.service';
+import { UserComponent } from './Components/user/user.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NotFounPageComponent,
       HomeComponent,
-      AboutComponent
+      AboutComponent,
+      UserComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FormsModule
    ],
-   providers: [],
+   providers: [UserService],
    bootstrap: [
       AppComponent
    ]
