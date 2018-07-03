@@ -1,0 +1,23 @@
+<div class="container">
+  <br>
+  <form (ngSubmit)="onSubmit()" #in="ngForm">
+    <div class="form-group">
+      <label for="username">Username :</label>
+      <input ngModel type="username" required class="form-control" name="username" id="username" placeholder="username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email :</label>
+      <input #ValidEmail="ngModel" required email ngModel type="email" class="form-control" name="email" id="email" placeholder="email">
+      <small style="color: rgb(116, 33, 33)" *ngIf="!ValidEmail.valid && ValidEmail.touched">please enter a valid Email</small>
+    </div>
+    <div class="form-group">
+      <label for="selection1">Gender :</label>
+      <select required [ngModel]="DefualtGender" class="custom-select" name="gender" id="selection1">
+        <option value="">choose</option>
+        <option selected value="0">male</option>
+        <option value="1">famle</option>
+      </select>
+    </div>
+    <button [disabled]="!in.valid" type="submit" class="btn btn-info">Submit</button>
+  </form>
+</div>

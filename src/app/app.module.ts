@@ -9,6 +9,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
 import { UserService } from './Services/User/user.service';
 import { UserComponent } from './Components/user/user.component';
+import { SingUpComponent } from './Components/sing-up/sing-up.component';
 
 @NgModule({
    declarations: [
@@ -16,7 +17,8 @@ import { UserComponent } from './Components/user/user.component';
       NotFounPageComponent,
       HomeComponent,
       AboutComponent,
-      UserComponent
+      UserComponent,
+      SingUpComponent
    ],
    imports: [
       BrowserModule,
