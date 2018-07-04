@@ -10,8 +10,11 @@
       <div class="form-group">
         <label for="email">Email :</label>
         <input formControlName="email" type="email" class="form-control" id="email" placeholder="email">
+        <!-- <small class="alert alert-danger" *ngIf="inputForm.get('info.email').errors['required'] && inputForm.get('info.email').touched">پر کردن این فیلد اجباری است</small> -->
+        <!-- <small class="alert alert-danger" *ngIf="inputForm.get('info.email').errors['email'] && inputForm.get('info.email').touched">یک ایمیل واقعی وارد کنید</small> -->
+        <!-- <small class="alert alert-danger" *ngIf="inputForm.get('info.email').errors['isBannedEmail'] != null && inputForm.get('info.email').touched">این ایمیل ثبت شده است</small> -->
         <small class="alert alert-danger" *ngIf="!inputForm.get('info.email').valid && inputForm.get('info.email').touched">enter a valid email</small>
-       </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="selection">Gender :</label>
@@ -19,6 +22,15 @@
         <option *ngFor="let gender of genders; let i=index" [value]="gender">{{gender}}</option>
       </select>
     </div>
-    <button [disabled]="!inputForm.valid" type="submit" class="btn btn-info">Submit</button>
+    <div formArrayName = "colors" >
+      <h4>Enter your colors</h4>
+      <button type="button" class="btn btn-primary" (click)="onAddColorsClick()">Add Colors</button>
+      <div class="form-group" *ngFor="let colorControl of inputForm.get('colors').controls; let i = index">
+        <input type="text" [formControlName]="i" class="form-control">
+      </div>
+    </div>
+    <br>
+    <!-- [disabled]="!inputForm.valid" -->
+    <button type="submit" class="btn btn-info">Submit</button>
   </form>
 </div>
