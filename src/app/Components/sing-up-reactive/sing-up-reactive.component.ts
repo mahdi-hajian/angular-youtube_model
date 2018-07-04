@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { resolve } from 'q';
 // add ReactiveFormsModule in app.module
 
 @Component({
@@ -19,14 +18,19 @@ export class SingUpReactiveComponent implements OnInit {
   ngOnInit() {
     this.inputForm = new FormGroup({
       'info': new FormGroup({
-        'username': new FormControl(null,Validators.required),
+        'username': new FormControl(null,Validators.required, this.bannedUserName),
         'email': new FormControl(null,[Validators.required,Validators.email,this.bannedEmailCheck.bind(this)])
       }),
       'gender': new FormControl('male',Validators.required),
       'colors': new FormArray([])
     });
-    //
-
+    ////
+    // this.inputForm.valueChanges.subscribe(
+    //   (a) => console.log(a)
+    // );
+    this.inputForm.statusChanges.subscribe(
+      (a) => console.log(a)
+    );
   }
   onSubmit(){
     console.log(this.inputForm);
@@ -40,19 +44,26 @@ export class SingUpReactiveComponent implements OnInit {
     if (this.bannedEmail.indexOf(control.value) != -1) {
       return {'isBannedEmail':true}
     }
-      return null;
   }
 
   bannedUserName(control: FormControl): Promise<any> | Observable<any>{
-    const promise = new Promise<any>((resolve, reject)) => {
-      setTimeout(() => {
-        if (control.value == 'mahdi') {
-          resolve({'usenameISBan': true})
-        }else {
-          resolve (null);
-        }
-      }, 2000);
+      const promise =new Promise<any>((resolve, reject) =>{
+        setTimeout(() => {
+          if (control.value == 'mahdi') {
+            resolve({'usenameIsBanned': true})
+          } else {
+            resolve (null);
+          }
+        }, 2000);
+      });
+      return promise
     }
-    return promise
-  }
+    setdValue(){
+      this.inputForm.patchValue({
+        'info':{
+          'username':'mohammad'
+        },
+        'gender': 'female'
+      });
+    }
 }
