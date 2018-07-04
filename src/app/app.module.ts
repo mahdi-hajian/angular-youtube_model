@@ -12,6 +12,8 @@ import { UserService } from './Services/User/user.service';
 import { UserComponent } from './Components/user/user.component';
 import { SingUpComponent } from './Components/sing-up/sing-up.component';
 import { SingUpReactiveComponent } from './Components/sing-up-reactive/sing-up-reactive.component';
+import { PipeOnePipe } from './Pipes/pipe-one.pipe';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
    declarations: [
@@ -21,7 +23,9 @@ import { SingUpReactiveComponent } from './Components/sing-up-reactive/sing-up-r
       AboutComponent,
       UserComponent,
       SingUpComponent,
-      SingUpReactiveComponent
+      SingUpReactiveComponent,
+      PipeOnePipe,
+      FilterPipe
    ],
    imports: [
       BrowserModule,
