@@ -1,4 +1,5 @@
 export interface Ipost {
-    Name :number;
-    Description: String;
+    id: number;
+    name: string;
+    description: String;
 }

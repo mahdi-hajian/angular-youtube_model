@@ -9,7 +9,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { NotFounPageComponent } from './not-foun-page/not-foun-page.component';
 import { HomeComponent } from './Components/home/home.component';
 import { AboutComponent } from './Components/about/about.component';
-import { PostService } from './Services/post/post.service';
 
 @NgModule({
    declarations: [
@@ -25,9 +24,10 @@ import { PostService } from './Services/post/post.service';
       ReactiveFormsModule,
       HttpClientModule
    ],
-   providers: [PostService],
+   providers: [],
    bootstrap: [
       AppComponent
    ]
 })
 export class AppModule { }
+

@@ -8,9 +8,8 @@ import { Ipost } from '../../Interfaces/ipost';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  @ViewChild('postUserId') UserIdPost: ElementRef;
-  @ViewChild('postTitle') TitlePost: ElementRef;
-  @ViewChild('postBody') BodyPost: ElementRef;
+  @ViewChild('postname') namePost: ElementRef;
+  @ViewChild('postdescription') descriptionPost: ElementRef;
   //
   @ViewChild('PutID') PutID: ElementRef;
   //
@@ -18,27 +17,31 @@ export class AboutComponent implements OnInit {
   constructor(private postService:PostService) { }
 
   ngOnInit() {
-    this.postService.getPost().subscribe((c) => {console.log(c)})    
+    this.postService.getPost().subscribe((c) => {this.array = c}) ;   
+    // this.postService.getPost().subscribe((c) => {console.log(c)}) ;   
   }
 
-  // PostElement(){
-  //   let postItem: Ipost = {UserID:0, Title:'', Body:''};
-  //   postItem.UserID = +this.UserIdPost.nativeElement.value;
-  //   postItem.Title = this.TitlePost.nativeElement.value;
-  //   postItem.Body = this.BodyPost.nativeElement.value;
-  //   this.postService.postPost(postItem).subscribe(
-  //     (c => console.log(c))
-  //   );
-  // }
+  PostElement(){
+    let postItem: Ipost = {name:"", description:"", id: 0};
+    postItem.name = this.namePost.nativeElement.value;
+    postItem.description = this.descriptionPost.nativeElement.value;
+    
+    this.postService.postPost(postItem).subscribe(
+      (c) => {console.log(c)}
+    );
+  }
 
-  // PutElement(){
-  //   let id = +this.PutID.nativeElement.value;
-  //   let postItem: Ipost = {UserID:0, Title:'', Body:''};
-  //   postItem.UserID = +this.UserIdPost.nativeElement.value;
-  //   postItem.Title = this.TitlePost.nativeElement.value;
-  //   postItem.Body = this.BodyPost.nativeElement.value;
+  PutElement(){
+    let id = +this.PutID.nativeElement.value;
+    let postItem: Ipost = {name:'', description:'', id: 0};
+    postItem.name = this.namePost.nativeElement.value;
+    postItem.description = this.descriptionPost.nativeElement.value;
 
-  //   this.postService.putPost(postItem,id).subscribe(c => console.log(c));
-  // }
+    this.postService.putPost(postItem,id).subscribe(c => console.log(c));
+  }
 
+  Deletelement(){
+    let id = +this.PutID.nativeElement.value;
+    this.postService.DeletePost(id).subscribe(c => console.log(c));
+  }
 }
