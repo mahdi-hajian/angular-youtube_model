@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ipost } from '../../Interfaces/ipost';
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +10,13 @@ export class PostService {
   constructor(private http:HttpClient) { }
 
   getPost(){
+    const header = new HttpHeaders({
+      'Content-Type': 'application/json',
+
+    });
     return this.http.get(this.url)
   }
-  
+
   postPost(post:Ipost){
     const header = new HttpHeaders({
       'Content-Type': 'application/json'

@@ -21,24 +21,24 @@ export class AboutComponent implements OnInit {
     this.postService.getPost().subscribe((c) => {this.array = c})    
   }
 
-  PostElement(){
-    let postItem: Ipost = {UserID:0, Title:'', Body:''};
-    postItem.UserID = +this.UserIdPost.nativeElement.value;
-    postItem.Title = this.TitlePost.nativeElement.value;
-    postItem.Body = this.BodyPost.nativeElement.value;
-    this.postService.postPost(postItem).subscribe(
-      (c => console.log(c))
-    );
-  }
+  // PostElement(){
+  //   let postItem: Ipost = {UserID:0, Title:'', Body:''};
+  //   postItem.UserID = +this.UserIdPost.nativeElement.value;
+  //   postItem.Title = this.TitlePost.nativeElement.value;
+  //   postItem.Body = this.BodyPost.nativeElement.value;
+  //   this.postService.postPost(postItem).subscribe(
+  //     (c => console.log(c))
+  //   );
+  // }
 
-  PutElement(){
-    let id = +this.PutID.nativeElement.value;
-    let postItem: Ipost = {UserID:0, Title:'', Body:''};
-    postItem.UserID = +this.UserIdPost.nativeElement.value;
-    postItem.Title = this.TitlePost.nativeElement.value;
-    postItem.Body = this.BodyPost.nativeElement.value;
+  // PutElement(){
+  //   let id = +this.PutID.nativeElement.value;
+  //   let postItem: Ipost = {UserID:0, Title:'', Body:''};
+  //   postItem.UserID = +this.UserIdPost.nativeElement.value;
+  //   postItem.Title = this.TitlePost.nativeElement.value;
+  //   postItem.Body = this.BodyPost.nativeElement.value;
 
-    this.postService.putPost(postItem,id).subscribe(c => console.log(c));
-  }
+  //   this.postService.putPost(postItem,id).subscribe(c => console.log(c));
+  // }
 
 }

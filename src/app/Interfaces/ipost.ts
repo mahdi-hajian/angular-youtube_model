@@ -1,5 +1,4 @@
 export interface Ipost {
-    UserID :number;
-    Title: String;
-    Body: string;
+    Name :number;
+    Description: String;
 }
