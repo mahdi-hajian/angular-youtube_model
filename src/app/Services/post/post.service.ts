@@ -6,7 +6,7 @@ import { Ipost } from '../../Interfaces/ipost';
   providedIn: 'root'
 })
 export class PostService {
-  url = "https://jsonplaceholder.typicode.com/posts";
+  url = "http://localhost:35113/api/values";
   constructor(private http:HttpClient) { }
 
   getPost(){

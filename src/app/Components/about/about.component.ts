@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
   constructor(private postService:PostService) { }
 
   ngOnInit() {
-    this.postService.getPost().subscribe((c) => {this.array = c})    
+    this.postService.getPost().subscribe((c) => {console.log(c)})    
   }
 
   // PostElement(){
