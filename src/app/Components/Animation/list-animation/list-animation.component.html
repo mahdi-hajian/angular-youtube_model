@@ -1,3 +1,15 @@
-<p>
-  list-animation works!
-</p>
+  <br>
+  <div [@photoAnimation]="photos.length">
+    <div *ngFor="let photo of photos">
+        <img [src]="photo.photo" style="width: 300px">
+    </div>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button class="btn btn-success" (click)="changePosition('move')">Translate</button> | 
+    <button class="btn btn-success" (click)="changePosition('spin')">Rotate</button> | 
+    <button class="btn btn-success" (click)="changePosition('enlarge')">Scale</button> | 
+    <button class="btn btn-success" (click)="changePosition(null)">Reset</button>

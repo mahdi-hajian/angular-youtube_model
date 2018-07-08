@@ -1,3 +1,8 @@
-<p>
-  multi-state-animation works!
-</p>
+<div class="container">
+  <br>
+<img [src] = "photoUrl" [@photoState] = "position" class="photo">
+  <button class="btn btn-success" (click)="changePosition('move')">Translate</button> | 
+  <button class="btn btn-success" (click)="changePosition('spin')">Rotate</button> | 
+  <button class="btn btn-success" (click)="changePosition('enlarge')">Scale</button> | 
+  <button class="btn btn-success" (click)="changePosition(null)">Reset</button>
+</div>

@@ -1,3 +1,10 @@
-<p>
-  two-way-animation works!
-</p>
+<div class="container">
+  <br>
+  <div [@popOverState]="getState">
+    <p>
+      <img src="../../../../favicon.ico">
+    </p>
+    <p>hello . . .</p>
+  </div>
+  <button (click)="toggle()">toggle</button>
+</div>
