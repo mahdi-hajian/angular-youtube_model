@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\Components",
+    "\\src\\app\\Components\\sing-up"
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\src\\app\\Components\\sing-up\\sing-up.component.html",
   "PreviewInSolutionExplorer": false
 }
