@@ -24,7 +24,7 @@ export class SingUpReactiveComponent implements OnInit {
       'gender': new FormControl('male',Validators.required),
       'colors': new FormArray([])
     });
-    ////
+    ///////
     // this.inputForm.valueChanges.subscribe(
     //   (a) => console.log(a)
     // );
